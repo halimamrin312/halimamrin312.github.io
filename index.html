@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title>Masuk</title>
+        <link rel="icon" href="logo.png" type="image/png">
+        <style>
+            
+            body {
+                font-family:sans-serif;
+                background-image: url('https://images.wallpaperscraft.com/image/single/deer_art_vector_134088_3840x2400.jpg');
+                background-size: 100%;
+            }
+
+            .container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .box {
+                font-size: 24px;
+                text-align: center;
+                color: #ffffff;
+                padding: 20px;
+                background-color: #ff4343;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                width: 200px;
+                height: 100px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .box_biru {
+                font-size: 24px;
+                text-align: center;
+                color: #ffffff;
+                padding: 20px;
+                background-color: rgb(125, 67, 255);
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                width: 200px;
+                height: 100px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .box+.box_biru{
+                margin-left: 20px;
+            }
+            button {
+                font-size: 24px;
+                color: #ffffff;
+                background-color: rgb(255, 67, 67);
+                padding:10px 20px ;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: rgb(220, 35, 35);
+                color: hsl(0, 0%, 60%);
+            }
+            button:focus {
+                outline: none;
+            }
+            btn-secondary {
+                font-size: 24px;
+                color: #ffffff;
+                background-color: rgb(125, 67, 255);
+                padding:10px 20px ;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            btn-secondary:hover {
+                background-color: rgb(95, 35, 223);
+                color: hsl(0, 0%, 60%);
+            }
+            btn-secondary:focus {
+                outline: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="box">
+                <button onclick="window.location.href='logorregis.html'">
+                    LOGIN
+                </button>
+            </div>
+            <div class="box_biru">
+                <btn-secondary onclick="window.location.href='logorregis.html'">
+                    REGISTER
+                </btn-secondary>
+            </div>
+        </div>
+    </body>
+</html>
