@@ -1,0 +1,69 @@
+  @import url('https://fonts.googleapis.com/css2?family=Ysabeau:wght@500&display=swap');
+*{
+    font-size: 14px;
+    font-family: 'Ysabeau', sans-serif;
+}
+body {
+    background-color: white;
+}
+
+.container::after {
+    content: "";
+    background-image: url("background.png");
+    background-size: cover;
+    opacity: 0.5; /* set opacity ke 50% */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.container {
+    background: linear-gradient(hsl(0, 0%, 30%) 70%,hsl(0, 100%, 70%) 30%) ;
+    max-width: 350px;
+    max-height: 700px;
+    width: 90%;
+    height: 70%;
+    padding: 3%;
+    padding-top: 5%;
+    /* background:linear-gradient(hsl(0, 0%, 30%) 70%,hsl(0, 100%, 70%) 30%); */
+    border-radius: 5px;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.inp-himp,
+.operasi-himp,
+.button-himp{
+    margin-bottom: 15px;
+}
+
+.inp-himp input,
+.operasi-himp,
+.container button{
+    transition: ease-in-out 0.3s;
+    background-color: white;
+    border: 0.1px solid hsla(0, 0%, 0%, 0.300);
+    border-radius: 2px;
+    padding: 2%;
+    width: 90%;
+}
+.inp-himp input:focus,
+.operasi-himp:focus{
+    transition: ease-in-out 0.3s;
+    padding: 3%;
+}
+
+.inp-himp input:focus::placeholder{
+    color: transparent;
+}
+
+.container select option {
+    margin: 5px;
+}
