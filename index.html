@@ -7,23 +7,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INDEX</title>
     <link rel="stylesheet" href="index-style.css">
+    <script src="operasi.js"></script>
 </head>
 
 <body>
     <div class='container'>
-        <div class="inp-himp">
+        <div>
             <input type="text" id="himp1" placeholder="HIMPUNAN 1">
         </div>
-        <div class="inp-himp">
+        <div>
             <input type="text" id="himp2" placeholder="HIMPUNAN 2">
         </div>
-        <select class="operasi-himp">
-            <option selected disabled hidden></option>
-            <option value="UNION">UNION</option>
-            <option value="INTERSECT">INTERSECT</option>
-        </select>
-        <div class="button-himp">
-            <button>HASILKAN</button>
+        <div>
+            <select id="op">
+                <option selected disabled hidden></option>
+                <option value="INTERSECT">INTERSECT</option>
+                <option value="UNION">UNION</option>
+                <option value="DIFFERENCE">DIFFERENCE</option>
+            </select>
+        </div>
+        <button onclick="hasilkan()">HASILKAN</button>
+        <div class="box-hasil">
+            <p>OUTPUT :</p>
+            <p id ='hasil'></p>
         </div>
     </div>
 </body>
