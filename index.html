@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Latihan dengan Combo Box</title>
+</head>
+
+<body>
+  <div class="container-1">
+    <button id="menu"><a href="index.html">Menu</a></button>
+    <button><a href="index.html"></a>Data Barang</button>
+    <button><a href="datatransaksi.html">Data Transaksi</a></button>
+    <button><a href="datapelanggan.html">Data Pelanggan</a></button>
+  </div>
+  <div class="container-2">
+    <h1>Data Barang</h1>
+    <div class="input">
+      <div class="i">
+        <p>Input Kode</p>
+        <input type="text" id="kodeInput" />
+      </div>
+      <div class="i">
+        <p>Input Harga</p>
+        <input type="text" id="hargaInput" />
+      </div>
+    </div>
+
+    <div class="input">
+      <div class="i">
+        <p>Input Nama</p>
+        <input type="text" id="namaInput" />
+      </div>
+      <div class="i">
+        <p>Input Satuan</p>
+        <input type="text" id="satuanInput" />
+      </div>
+    </div>
+    <div class="proses">
+      <button onclick="prosesData()">proses</button>
+    </div>
+
+    <div class="output" id="outputContainer">
+    </div>
+  </div>
+
+  <script>
+    function prosesData() {
+      var kode = document.getElementById("kodeInput").value;
+      var nama = document.getElementById("namaInput").value;
+      var harga = document.getElementById("hargaInput").value;
+      var satuan = document.getElementById("satuanInput").value;
+      var outputHtml =
+        '<div class="o"><p>kode barang</p><input type="text" value="' +
+        kode +
+        '"></div>' +
+        '<div class="o"><p>nama barang</p><input type="text" value="' +
+        nama +
+        '"></div>' +
+        '<div class="o"><p>harga</p><input type="text" value="' +
+        harga +
+        '"></div>' +
+        '<div class="o"><p>satuan</p><input type="text" value="' +
+        satuan +
+        '"></div>';
+      document.getElementById("outputContainer").innerHTML = outputHtml;
+    }
+  </script>
+</body>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .container-1 {
+    background-color: #01c8fa;
+    padding: 15px;
+    width: 100%;
+    margin: auto;
+  }
+
+  .container-1 button {
+    display: block;
+    width: 250px;
+    margin: auto;
+    padding: 12px;
+    background-color: #036bfc;
+    /* Warna latar belakang */
+    color: white;
+    /* Warna teks */
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  #menu {
+    margin-bottom: 30px;
+  }
+
+  .container-2 {
+    background-color: #f5f5f5;
+    /* Warna latar belakang */
+    border: 8px solid #000000;
+    box-sizing: border-box;
+  }
+
+  .container-2 h1 {
+    text-align: center;
+    padding-top: 12px;
+    color: #333;
+    /* Warna teks */
+  }
+
+
+  input {
+    padding: 6px;
+    border: 1px solid #ccc;
+    /* Warna garis input */
+    border-radius: 4px;
+  }
+
+  .input {
+    display: block;
+    margin: 0 auto;
+    /* Memusatkan elemen input ke tengah */
+    margin-bottom: 20px;
+    width: 60%;
+    /* Atur lebar elemen input sesuai kebutuhan */
+  }
+
+
+  .i {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 2px;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+
+  .proses {
+    position: relative;
+    left: 650px;
+  }
+
+  .proses button {
+    width: 185px;
+    padding: 12px;
+    background-color: #4caf50;
+    /* Warna latar belakang */
+    color: white;
+    /* Warna teks */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .output {
+    display: flex;
+    position: relative;
+    left: 283px;
+    margin-top: 12px;
+  }
+
+  .o p {
+    padding: 12px;
+    background-color: #ff9800;
+    /* Warna latar belakang */
+    color: white;
+    /* Warna teks */
+    width: 150px;
+    box-sizing: border-box;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 4px;
+  }
+
+  .o input {
+    display: block;
+    width: 150px;
+    height: 30px;
+    background-color: #fff;
+    /* Warna latar belakang */
+    border: 1px solid black;
+    box-sizing: border-box;
+    border-radius: 4px;
+  }
+</style>
+
+</html>

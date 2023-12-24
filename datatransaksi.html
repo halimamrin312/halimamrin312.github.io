@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: hsl(234, 100%, 63%);
+      color: #02020e;
+      margin-top: 50px;
+    }
+
+    h2 {
+      text-align: center;
+      color: rgb(1, 2, 24);
+    }
+
+    form {
+      margin-bottom: 20px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      align-items: center;
+      justify-items: left;
+      width: 25%;
+      margin: auto;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 3px solid #791414;
+      -webkit-transition: 0.5s;
+      transition: 0.5s;
+      outline: none;
+    }
+
+    input[type="submit"] {
+      width: 50%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 0px solid #2d2c30;
+      -webkit-transition: 0.5s;
+      transition: 0.5s;
+      outline: none;
+      grid-column: span 2;
+    }
+
+    input[type="text"]:focus,
+    input[type="number"]:focus {
+      border: 3px solid #555;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      align-self: center;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid wheat;
+      padding: 15px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #af4c4c;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>PROSES DATA TRANSAKSI</h2>
+
+  <form id="transaksiForm">
+    Input no faktur: <input type="text" id="inputnofaktur" /><br />
+    Input jumlah transaksi: <input type="text" id="inputjumlahtransaksi" /><br />
+    Input harga jual: <input type="text" id="inputhargajual" /><br />
+    <input type="submit" value="Proses" />
+  </form>
+
+  <table id="transaksi">
+    <tr>
+      <th>No faktur</th>
+      <th>Jumlah transaksi</th>
+      <th>Harga jual</th>
+      <th>Total harga</th>
+      <th>Diskon</th>
+    </tr>
+  </table>
+
+  <script>
+    document.getElementById("transaksiForm").onsubmit = function (event) {
+      event.preventDefault();
+
+      var Inputnofaktur = document.getElementById("inputnofaktur").value;
+      var Inputjumlahtransaksi = document.getElementById("inputjumlahtransaksi").value;
+      var inputhargajual = document.getElementById("inputhargajual").value;
+      var table = document.getElementById("transaksi");
+      var row = table.insertRow(-1);
+      row.insertCell(0).innerHTML = Inputnofaktur;
+      row.insertCell(1).innerHTML = Inputjumlahtransaksi;
+      row.insertCell(2).innerHTML = inputhargajual;
+
+      // Memanggil fungsi hitungTotal setelah menambahkan data ke tabel
+      hitungTotal();
+    };
+
+    function hitungTotal() {
+      // Mengambil nilai dari form
+      var noFaktur = document.getElementById('inputnofaktur').value;
+      var jumlahTransaksi = parseInt(document.getElementById('inputjumlahtransaksi').value);
+      var hargaJual = parseFloat(document.getElementById('inputhargajual').value);
+
+      // Menghitung total harga
+      var totalHarga = jumlahTransaksi * hargaJual;
+
+      // Memberikan diskon jika no faktur adalah B01 dan jumlah transaksi >= 10
+      var diskon = 0;
+      if (noFaktur === 'B01' && jumlahTransaksi >= 10) {
+        diskon = totalHarga * 0.07;  // Diskon 7%
+        totalHarga -= diskon;
+      }
+
+      // Menampilkan total harga dan diskon ke dalam tabel
+      var table = document.getElementById("transaksi");
+      var row = table.rows[table.rows.length - 1]; // Ambil baris terakhir
+      row.insertCell(3).innerHTML = totalHarga.toFixed(2);
+      row.insertCell(4).innerHTML = diskon.toFixed(2);
+    }
+
+    document.getElementById('submit').addEventListener('click', function (event) {
+      event.preventDefault();
+      hitungTotal();
+    });
+  </script>
+</body>
+
+</html>

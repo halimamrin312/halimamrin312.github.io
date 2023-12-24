@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #bb2424;
+        color: #02020e;
+        margin-top: 50px;
+      }
+
+      h2 {
+        text-align: center;
+        color: rgb(1, 2, 24);
+      }
+
+      form {
+        margin-bottom: 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        align-items: center;
+        justify-items: left;
+        width: 25%;
+        margin: auto;
+      }
+
+      input[type="text"],
+      input[type="number"] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 3px solid #555;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        outline: none;
+      }
+
+      input[type="submit"] {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 0px solid #555;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        outline: none;
+        grid-column: span 2;
+      }
+
+      input[type="text"]:focus,
+      input[type="number"]:focus {
+        border: 3px solid #555;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: separate;
+        align-self: center;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid wheat;
+        padding: 15px;
+        text-align: center;
+      }
+
+      th {
+        background-color: #f7ea3a;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Data Pelanggan</h2>
+
+    <form id="pelangganForm">
+      ID Pelanggan: <input type="text" id="idPelanggan" /><br />
+      Nama Pelanggan: <input type="text" id="namaPelanggan" /><br />
+      Nomor HP Pelanggan: <input type="number" id="nomorHpPelanggan" /><br />
+      <input type="submit" value="Proses" />
+    </form>
+
+    <table id="hasilPelanggan">
+      <tr>
+        <th>ID Pelanggan</th>
+        <th>Nama Pelanggan</th>
+        <th>Nomor HP Pelanggan</th>
+      </tr>
+    </table>
+
+    <script>
+      document.getElementById("pelangganForm").onsubmit = function (event) {
+        event.preventDefault();
+
+        var idPelanggan = document.getElementById("idPelanggan").value;
+        var namaPelanggan = document.getElementById("namaPelanggan").value;
+        var nomorHpPelanggan =document.getElementById("nomorHpPelanggan").value;
+
+        var table = document.getElementById("hasilPelanggan");
+        var row = table.insertRow(-1);
+        row.insertCell(0).innerHTML = idPelanggan;
+        row.insertCell(1).innerHTML = namaPelanggan;
+        row.insertCell(2).innerHTML = nomorHpPelanggan;
+      };
+    </script>
+  </body>
+</html>
