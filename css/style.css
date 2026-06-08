@@ -76,14 +76,33 @@ main .about-me .desc {
     gap: 1rem;
 }
 
-main .about-me .desc button {
-    padding: 10px;
-    border-radius: 10px;
-    font-size: var(--general-fsize);
+main .about-me .desc h1 {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    line-height: 1.2;
+}
+
+main .about-me .desc p {
+    font-size: 1.5rem;
+    color: #666;
+}
+
+.cta {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.cta .btn-primary, 
+.cta .btn-outline {
+    padding: 12px 28px;
+    border-radius: 30px; /* Bentuk kapsul */
+    font-size: 1.1rem;
+    font-weight: bold;
 }
 
 /* Button */
-button.btn-primary {
+.btn-primary {
     background-color: var(--primary-color);
     color: white;
     cursor: pointer;
@@ -91,14 +110,14 @@ button.btn-primary {
     transition: all 0.3s ease;
 }
 
-button.btn-primary:hover {
+.btn-primary:hover {
     background-color: var(--primary-hover-color);
     transform: scale(1.02);
     box-shadow: 0px 2px 15px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* Styling spesifik dengan Class (Gunakan tanda titik .) */
-button.btn-outline {
+.btn-outline {
     background-color: var(--primary-outline-color);
     color: var(--primary-color);
     border: 2px solid var(--primary-color);
@@ -107,7 +126,7 @@ button.btn-outline {
     /* Kunci animasinya di sini */
 }
 
-button.btn-outline:hover {
+.btn-outline:hover {
     background-color: var(--primary-outline-hover-color);
     transform: scale(1.02);
     box-shadow: 0px 2px 15px 3px rgba(0, 0, 0, 0.3);
@@ -125,4 +144,60 @@ main .about-me .image {
 
 main .about-me .image img {
     width: 350px;
+    height: 350px;
+    object-fit: cover; /* Mencegah gambar gepeng */
+    border-radius: 50%; /* Membuat lingkaran sempurna */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); /* Bayangan 3D */
+    border: 8px solid white; /* Bingkai ala polaroid modern */
+}
+
+/* Footer */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50px;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN (Media Queries)
+   ========================================= */
+@media (max-width: 768px) {
+    /* 1. Navbar: Disusun ke bawah agar tidak saling tabrak */
+    header nav {
+        flex-direction: column;
+        height: auto;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        gap: 1rem;
+    }
+
+    /* 2. Main Section: Ubah posisi menjadi Atas-Bawah */
+    main .about-me {
+        flex-direction: column-reverse; /* Trik: Foto diletakkan di atas teks */
+        text-align: center;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    /* 3. Lebar: Memaksa teks dan foto memenuhi 100% lebar layar HP */
+    main .about-me .desc,
+    main .about-me .image {
+        width: 100%;
+        padding: 1rem 0; /* Mengurangi jarak samping */
+    }
+
+    /* 4. Teks & Tombol: Mengecilkan teks dan menengahkan tombol CTA */
+    main .about-me .desc h1 {
+        font-size: 2.5rem;
+    }
+
+    .cta {
+        justify-content: center;
+    }
+    
+    main .about-me .image img {
+        width: 250px;
+        height: 250px;
+    }
 }
