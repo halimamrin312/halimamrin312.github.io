@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPortofolio</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --main-padding: 2rem;
+            --header-fsize: x-large;
+            --header-fcolor: rgb(62, 62, 62);
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        * a {
+            text-decoration: none;
+        }
+
+        * li {
+            list-style-type: none;
+        }
+
+        header {
+            z-index: 100;
+            position: fixed;
+            width: 100vw;
+        }
+
+        header nav {
+            padding: var(--main-padding);
+            font-size: var(--header-fsize);
+            background-color: aliceblue;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header nav ul {
+            display: flex;
+            flex-direction: row;
+        }
+
+        header nav li {
+            color: var(--header-fcolor);
+            margin: 10px;
+        }
+
+
+        header nav li a,
+        header nav .nav-logo a {
+            color: var(--header-fcolor);
+        }
+
+        body {
+            background-color: bisque;
+            height: 150vh;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="nav-logo">
+                <a href="#">.Lim</a>
+            </div>
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

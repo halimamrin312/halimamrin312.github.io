@@ -1,0 +1,85 @@
+:root {
+    --primary-color: #3498db;
+    --lr-padding: 2rem;
+    --header-fsize: x-large;
+    --header-fcolor: rgb(62, 62, 62);
+    --nav-height: 3rem;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+* a {
+    text-decoration: none;
+}
+
+* li {
+    list-style-type: none;
+}
+
+/* header */
+
+
+header nav {
+    height: var(--nav-height);
+    padding-left: var(--lr-padding);
+    padding-right: var(--lr-padding);
+    font-size: var(--header-fsize);
+    background-color: rgb(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav ul {
+    display: flex;
+    flex-direction: row;
+}
+
+header nav li {
+    color: var(--header-fcolor);
+    margin-left: 10px;
+}
+
+header nav li a,
+header nav .nav-logo a {
+    color: var(--header-fcolor);
+}
+
+/* main */
+main {
+    background-color: rgb(220, 220, 220);
+    padding-left: var(--lr-padding);
+    padding-right: var(--lr-padding);
+    /* width: 100vw; */
+}
+
+main .about-me {
+    min-height: calc(100vh - var(--nav-height));
+    background-color: rgb(79, 210, 62);
+    display: flex;
+    flex-direction: row;
+}
+
+main .about-me .desc {
+    width: 50%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+main .about-me .image {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main .about-me .image img {
+    width: 350px;
+}
