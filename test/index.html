@@ -9,61 +9,73 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap"
         rel="stylesheet">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind -->
+    <link rel="stylesheet" href="../css/style.css">
     <title>Belajar Navbar</title>
 </head>
 
-<body style="font-family: 'Google Sans Flex', sans-serif;">
+<!-- overflow-x-hidden: cegah bayangan drawer bocor keluar layar saat animasi -->
 
-    <header class="text-lg z-50 top-0 sticky xl:px-60 px-16 shadow-md bg-white">
+<body class="overflow-x-hidden" style="font-family: 'Google Sans Flex', sans-serif;">
 
+    <!-- NAVBAR -->
+    <header class="text-lg z-50 top-0 sticky px-16 xl:px-60 shadow-md bg-white">
         <nav class="h-16 flex items-center justify-between">
-            <a href="#">Lim.</a>
-            <ul class="hidden gap-5 md:flex">
-                <li><a href="#about">About</a></li>
-                <li><a href="#about">Contact</a></li>
+
+            <a href="#" class="font-bold text-xl">Lim.</a>
+
+            <!-- Menu desktop: sembunyi di mobile, tampil di desktop -->
+            <ul class="hidden md:flex gap-5 list-none">
+                <li><a href="#about" class="text-gray-600 hover:text-gray-900">About</a></li>
+                <li> <button onclick="openModal()" class="text-gray-600 hover:text-gray-900 cursor-pointer">
+                        Project
+                    </button></li>
+                <li><a href="#contact" class="text-gray-600 hover:text-gray-900">Contact</a></li>
             </ul>
 
-            <button id="hamburger" class="md:hidden cursor-pointer flex flex-col gap-1.5">
+            <!-- Tombol hamburger: tampil di mobile, sembunyi di desktop -->
+            <button id="hamburger" class="md:hidden flex flex-col gap-1.5 cursor-pointer">
                 <span class="block w-6 h-0.5 bg-gray-800"></span>
                 <span class="block w-6 h-0.5 bg-gray-800"></span>
                 <span class="block w-6 h-0.5 bg-gray-800"></span>
             </button>
+
         </nav>
-
-
-        <div id="overlay"
-             class="fixed inset-0 bg-black/40 backdrop-blur-sm
-                    opacity-0 pointer-events-none
-                    transition-opacity duration-300">
-        </div>
-
-        <div id="nav-menu2"
-             class="fixed top-0 right-0 h-full w-3/4 max-w-sm
-                    bg-white shadow-2xl
-                    translate-x-full
-                    transition-transform duration-300 ease-in-out
-                    p-10 flex flex-col gap-6 z-50">
-
-            <div class="flex justify-between items-center">
-                <a href="#" class="font-bold text-xl">Lim.</a>
-                <button id="burglir" class="text-gray-500 hover:text-gray-900 text-2xl cursor-pointer">✕</button>
-            </div>
-
-            <span class="block h-0.5 bg-gray-100"></span>
-
-            <ul class="flex flex-col gap-4 text-lg">
-                <li><a href="#about" class="text-gray-600 hover:text-gray-900">About</a></li>
-                <li><a href="#about" class="text-gray-600 hover:text-gray-900">Contact</a></li>
-            </ul>
-
-        </div>
-
     </header>
 
-    <!-- Konten dummy -->
-    <main class="max-w-6xl xl:px-60 px-16 py-16">
+    <!-- OVERLAY — di luar header, z-40 (di bawah drawer z-50) -->
+    <div id="overlay" class="fixed inset-0 z-51
+                bg-black/40 backdrop-blur-sm
+                opacity-0 pointer-events-none
+                transition-opacity duration-300">
+    </div>
+
+    <!-- DRAWER — di luar header, z-50 (paling depan) -->
+    <div id="drawer" class="fixed top-0 right-0 z-51
+                h-full w-3/4 max-w-sm
+                bg-white border-l border-gray-200
+                translate-x-full
+                transition-transform duration-300 ease-in-out
+                flex flex-col px-16">
+
+        <div class="flex justify-between items-center h-16 ">
+            <a href="#" class="text-xl">Menu</a>
+            <button id="close-drawer" class="text-gray-400 hover:text-gray-900 text-2xl cursor-pointer">✕</button>
+        </div>
+
+        <span class="block h-0.5 bg-gray-100"></span>
+
+        <ul class="flex flex-col gap-4 mt-4 text-lg list-none ">
+            <li><a href="#about" class="text-gray-600 hover:text-gray-900">About</a></li>
+            <li> <button onclick="openModal()" class="text-gray-600 hover:text-gray-900 cursor-pointer">
+                    Project
+                </button></li>
+            <li><a href="#contact" class="text-gray-600 hover:text-gray-900">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- KONTEN DUMMY -->
+    <main class="px-16 xl:px-60 py-16">
         <p class="text-gray-400">Scroll ke bawah untuk test sticky navbar...</p>
         <div class="h-screen"></div>
         <div class="h-screen"></div>
@@ -71,36 +83,34 @@
 
     <script>
         const hamburger = document.getElementById('hamburger');
-        const burglir   = document.getElementById('burglir');
-        const drawer    = document.getElementById('nav-menu2');
-        const overlay   = document.getElementById('overlay');
+        const closeBtn = document.getElementById('close-drawer');
+        const drawer = document.getElementById('drawer');
+        const overlay = document.getElementById('overlay');
 
         function openDrawer() {
-            // Slide drawer masuk: hapus translate-x-full, tambah translate-x-0
             drawer.classList.remove('translate-x-full');
             drawer.classList.add('translate-x-0');
-
-            // Fade in overlay
             overlay.classList.remove('opacity-0', 'pointer-events-none');
             overlay.classList.add('opacity-100');
         }
 
         function closeDrawer() {
-            // Slide drawer keluar
             drawer.classList.remove('translate-x-0');
             drawer.classList.add('translate-x-full');
-
-            // Fade out overlay
             overlay.classList.remove('opacity-100');
             overlay.classList.add('opacity-0', 'pointer-events-none');
         }
 
         hamburger.addEventListener('click', openDrawer);
-        burglir.addEventListener('click', closeDrawer);
-
-        // Klik overlay juga menutup drawer
+        closeBtn.addEventListener('click', closeDrawer);
         overlay.addEventListener('click', closeDrawer);
+
+        // Tutup drawer saat link diklik
+        drawer.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeDrawer);
+        });
     </script>
 
 </body>
+
 </html>
